@@ -1,0 +1,29 @@
+{
+  "name": "featish",
+  "version": "0.1.0",
+  "description": "CLI tool to scaffold feature modules with a consistent structure",
+  "type": "module",
+  "bin": {
+    "featish": "./dist/index.js"
+  },
+  "files": ["dist"],
+  "scripts": {
+    "build": "tsup",
+    "dev": "tsup --watch",
+    "prepublishOnly": "tsup"
+  },
+  "keywords": ["cli", "scaffold", "feature", "generator"],
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^22.0.0",
+    "tsup": "^8.0.0",
+    "typescript": "^5.7.0"
+  },
+  "dependencies": {
+    "commander": "^13.0.0",
+    "chalk": "^5.4.0"
+  },
+  "engines": {
+    "node": ">=18"
+  }
+}
