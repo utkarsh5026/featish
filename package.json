@@ -4,7 +4,7 @@
   "description": "CLI tool to scaffold feature modules with a consistent structure",
   "type": "module",
   "bin": {
-    "featish": "./dist/index.js"
+    "featish": "dist/index.js"
   },
   "exports": {
     ".": "./dist/index.js",
@@ -13,18 +13,25 @@
       "import": "./dist/api.js"
     }
   },
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "scripts": {
     "test": "bun test",
     "build": "tsup",
     "dev": "tsup --watch",
     "prepublishOnly": "tsup"
   },
-  "keywords": ["cli", "scaffold", "feature", "generator"],
+  "keywords": [
+    "cli",
+    "scaffold",
+    "feature",
+    "generator"
+  ],
   "author": "Utkarsh Priyadarshi (https://github.com/utkarsh5026)",
   "repository": {
     "type": "git",
-    "url": "https://github.com/utkarsh5026/featish.git"
+    "url": "git+https://github.com/utkarsh5026/featish.git"
   },
   "homepage": "https://github.com/utkarsh5026/featish#readme",
   "bugs": {
