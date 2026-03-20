@@ -18,8 +18,9 @@ afterEach(async () => {
 
 describe("loadConfig", () => {
   test("returns DEFAULT_CONFIG when no config file exists", async () => {
-    const config = await loadConfig(tmpDir);
+    const { config, source } = await loadConfig(tmpDir);
     expect(config).toEqual(DEFAULT_CONFIG);
+    expect(source).toBeNull();
   });
 
   test("loads featish.config.json", async () => {
@@ -28,11 +29,12 @@ describe("loadConfig", () => {
       JSON.stringify({ dir: "lib/modules", barrels: false }),
     );
 
-    const config = await loadConfig(tmpDir);
+    const { config, source } = await loadConfig(tmpDir);
     expect(config.dir).toBe("lib/modules");
     expect(config.barrels).toBe(false);
     expect(config.readme).toBe(true);
     expect(config.folders).toEqual(DEFAULT_CONFIG.folders);
+    expect(source).toBe("featish.config.json");
   });
 
   test("loads .featishrc.json", async () => {
@@ -41,9 +43,10 @@ describe("loadConfig", () => {
       JSON.stringify({ folders: ["components", "utils"] }),
     );
 
-    const config = await loadConfig(tmpDir);
+    const { config, source } = await loadConfig(tmpDir);
     expect(config.folders).toEqual(["components", "utils"]);
     expect(config.dir).toBe(DEFAULT_CONFIG.dir);
+    expect(source).toBe(".featishrc.json");
   });
 
   test("loads .featishrc", async () => {
@@ -52,8 +55,9 @@ describe("loadConfig", () => {
       JSON.stringify({ readme: false }),
     );
 
-    const config = await loadConfig(tmpDir);
+    const { config, source } = await loadConfig(tmpDir);
     expect(config.readme).toBe(false);
+    expect(source).toBe(".featishrc");
   });
 
   test("prioritizes featish.config.json over .featishrc.json", async () => {
@@ -66,7 +70,8 @@ describe("loadConfig", () => {
       JSON.stringify({ dir: "from-rc" }),
     );
 
-    const config = await loadConfig(tmpDir);
+    const { config, source } = await loadConfig(tmpDir);
     expect(config.dir).toBe("from-config");
+    expect(source).toBe("featish.config.json");
   });
 });
