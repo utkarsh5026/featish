@@ -1,0 +1,6 @@
+{
+  "dir": "src/modules",
+  "folders": ["services", "types", "utils", "constants"],
+  "barrels": true,
+  "readme": false
+}

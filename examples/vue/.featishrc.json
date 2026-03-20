@@ -1,0 +1,6 @@
+{
+  "dir": "src/features",
+  "folders": ["components", "composables", "services", "stores", "types", "utils"],
+  "barrels": true,
+  "readme": true
+}
