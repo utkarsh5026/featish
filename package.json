@@ -21,6 +21,15 @@
     "prepublishOnly": "tsup"
   },
   "keywords": ["cli", "scaffold", "feature", "generator"],
+  "author": "Utkarsh Priyadarshi (https://github.com/utkarsh5026)",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/utkarsh5026/featish.git"
+  },
+  "homepage": "https://github.com/utkarsh5026/featish#readme",
+  "bugs": {
+    "url": "https://github.com/utkarsh5026/featish/issues"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/bun": "^1.3.11",
